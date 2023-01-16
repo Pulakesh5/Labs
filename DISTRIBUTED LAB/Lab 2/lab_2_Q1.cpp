@@ -16,6 +16,8 @@ int  main()
 {
     freopen("input.txt", "r", stdin);
     freopen("output.txt", "w", stdout);
+    
+    auto start = chrono::system_clock::now();
     int degree=5;
     int nodes=1<<degree;
     //cin>>nodes;
@@ -39,6 +41,10 @@ int  main()
         cout<<endl;
     }
 
+    auto end = chrono::system_clock::now();
+    chrono::duration<double> elapsed =  (end - start);
+    
+    
     cout<<"\n\nAdjacency list of the network:\n Node\t:\t Adjacenct Nodes\n"<<endl;
 
     for(int i=0;i<nodes;i++)
@@ -76,6 +82,9 @@ int  main()
     cout<<"node \t:\t degree\n";
     for(int i=1;i<=nodes;i++)
         cout<<i<<"\t:\t"<<adjacency_list[i].size()<<'\n';
+    
+    
+        cout << "Time : " << std::setw(9)<< elapsed.count()<< " s\n";
 
 }
 
