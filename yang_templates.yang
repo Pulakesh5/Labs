@@ -1,0 +1,118 @@
+module ip_allocation {
+    namespace "http://tail-f.com/ns/";
+    prefix ip_allocation;
+    import tailf-common {
+        prefix tailf;
+    }
+    container sample_app {
+        list object_example {
+            key "if_name";
+            leaf if_name {
+                type string;
+            }
+            leaf if_vlan {
+                type string;
+            }
+            leaf if_state {
+                type int8;
+            }
+        }
+    }
+}
+
+
+
+
+module test {
+    namespace "http://tail-f.com/ns/";
+    prefix test;
+    import tailf-common {
+        prefix tailf;
+    }
+    container test-list{
+        list test-list-entries{
+            key "name";
+            leaf name {
+                type string;
+            }
+            leaf label {
+                type string;
+            }
+            leaf number {
+                type int8;
+            }
+        }
+    }
+}
+
+
+
+
+
+module get-object-nested-container-example2{
+   namespace http://www.samsung.com/global/business/5Gnetworks/ns/example2;
+   prefix get-object-nested-container-example2;
+   import ietf-inet-types {
+      prefix inet;
+   }
+   import tailf-common {
+      prefix tailf;
+   }
+   container managed-element2 {
+      leaf case-number-one {
+         type uint8 {
+            range "0..100";
+         }
+      }
+      container fg-nodeb-function {
+         leaf case-number-two{
+            type uint8 {
+               range "0..100";
+            }
+         }
+      }
+      leaf case-number-three {
+         type uint8 {
+            range "0..100";
+         }
+      }
+   }
+}
+
+
+
+
+
+
+module example {
+        namespace "http://tail-f.com/ns/example/ex1";
+        prefix example;
+        typedef example_enum {
+                type enumeration {
+                        enum    val1;
+                        enum    val2;
+                        enum    val3;
+                }
+        }
+        identity identity_ex {
+                description "Testing Identities";
+        }
+        container leaf_example
+        {
+                leaf value_binary {
+                        type binary;
+                        description "Test Binary Value";
+                        default 10100101;
+                }
+                leaf value_boolean {
+                        type boolean;
+                        description "Test Boolean Value";
+                        default false;
+                }
+                leaf value_enum {
+                        type example_enum;
+                        description "Test Enumeration Value";
+                        default val2;
+                }
+        }
+}
